@@ -4609,10 +4609,22 @@ KronolithCore = {
                 $('kronolithEventDiv').show();
                 e.stop();
                 break;
+            case 'kronolithEventSaveAsNewWithAttendees':
+                $('kronolithEventSendUpdates').setValue(1);
+                this.saveEvent(true);
+                break;
+            case 'kronolithEventSaveAsNewNoAttendees':
+                $('kronolithEventAttendees').setValue('');
+                this.saveEvent(true);
+                break;
             case 'kronolithEventSaveAsNew':
                 if (!elt.disabled) {
-                    $('kronolithEventSendUpdates').setValue(1);
-                    this.saveEvent(true);
+                    if ($F('kronolithEventAttendees')) {
+                        $('kronolithEventDiv').hide();
+                        $('kronolithEventSaveAsNewDiv').show();
+                    } else {
+                        this.saveEvent(true);
+                    }
                 }
                 e.stop();
                 break;
@@ -5989,6 +6001,7 @@ KronolithCore = {
                 }
                 $('kronolithUpdateDiv').hide();
                 $('kronolithConflictDiv').hide();
+                $('kronolithEventSaveAsNewDiv').hide();
                 $('kronolithEventDiv').show();
             }.bind(this)
         });

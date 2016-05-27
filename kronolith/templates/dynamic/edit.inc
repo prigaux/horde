@@ -375,5 +375,12 @@
   <input id="kronolithEventConflictNo" type="button" value="<?php echo _("No") ?>" />
 </div>
 </div>
+<div id="kronolithEventSaveAsNewDiv" style="display:none">
+<p><?php echo _("This event has attendees.") ?></p>
+<div class="kronolithFormActions">
+  <input id="kronolithEventSaveAsNewNoAttendees" type="button" value="<?php echo _("Remove attendees?") ?>" class="horde-default" />
+  <input id="kronolithEventSaveAsNewWithAttendees" type="button" value="<?php echo _("Send invitations to all attendees?") ?>" />
+</div>
+</div>
 </form>
 </div>
